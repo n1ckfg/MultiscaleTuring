@@ -73,8 +73,9 @@ void ofApp::setup() {
 void ofApp::update() {
 	step();
 	
-	unsigned char* pixels = buffer.getPixels();
-	int n = num * num;
+	//unsigned char* pixels = buffer.getPixels();
+    ofPixels& pixels = buffer.getPixels();
+    int n = num * num;
   for (int i = 0; i < n; i++) {
 		pixels[i] = 128 + 100*grid[i];
   }	

@@ -49,8 +49,9 @@ void ofApp::setup() {
 		grid[i] = ofRandom(-1, +1);
   }
 	
-	unsigned char* pixels = buffer.getPixels();
-	for(int i = 0; i < wh; i++) {
+	//unsigned char* pixels = buffer.getPixels();
+    ofPixels& pixels = buffer.getPixels();
+    for(int i = 0; i < wh; i++) {
 		for(int j = 0; j < 4; j++) {
 			pixels[i * 4 + j] = 255;
 		}
@@ -227,7 +228,8 @@ void ofApp::update() {
 }
 
 void ofApp::drawBuffer(floats& grid, int offset) {
-	unsigned char* pixels = buffer.getPixels();
+  //unsigned char* pixels = buffer.getPixels();
+  ofPixels& pixels = buffer.getPixels();
   for (int i = 0; i < wh; i++) {
 		float cur = grid[i + offset * wh];
 		pixels[i * 4 + 3] = (cur + 1) * 4;

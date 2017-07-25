@@ -119,7 +119,8 @@ void ofApp::update() {
 
 template <class T>
 void drawBuffer(vector<T>& grid) {
-	unsigned char* pixels = buffer.getPixels();
+  //unsigned char* pixels = buffer.getPixels();
+  ofPixels& pixels = buffer.getPixels();
   for (int i = 0; i < n; i++) {
 		pixels[i] = 128 + 128 * grid[i];
   }	
